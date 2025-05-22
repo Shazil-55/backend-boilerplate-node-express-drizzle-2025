@@ -1,0 +1,1 @@
+ALTER TABLE "verifyTokens2" ADD COLUMN "token2" text NOT NULL;

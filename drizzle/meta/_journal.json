@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1747912094922,
+      "tag": "0000_previous_guardian",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1747912362790,
+      "tag": "0001_secret_champions",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1747912417801,
+      "tag": "0002_brave_emma_frost",
+      "breakpoints": true
+    }
+  ]
+}
