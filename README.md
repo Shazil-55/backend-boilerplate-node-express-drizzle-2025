@@ -6,7 +6,7 @@ A production-ready Node.js TypeScript REST API boilerplate with a robust set of 
 
 - **TypeScript**: Built with TypeScript for type safety and better developer experience
 - **Express.js**: Fast, unopinionated web framework for Node.js
-- **PostgreSQL**: Robust SQL database with Knex.js as the query builder
+- **PostgreSQL**: Robust SQL database with Drizzle ORM for type-safe database operations
 - **Authentication**: JWT-based authentication system
 - **API Documentation**: Swagger/OpenAPI documentation with swagger-ui-express
 - **Security**:
@@ -86,7 +86,8 @@ docker-compose -f docker-compose.prod.yml up
 - `npm run lintfix`: Fix linting issues
 - `npm run docker`: Start development environment with Docker
 - `npm run docker:prod`: Start production environment with Docker
-- `npm run migrator-v1`: Run database migrations
+- `npm run migrate`: Run database migrations using Drizzle
+- `npm run generate`: Generate Drizzle migrations
 - `npm run local-only-cleanup-database`: Clean up database (local only)
 
 ## 🏗️ Project Structure
@@ -95,10 +96,13 @@ docker-compose -f docker-compose.prod.yml up
 ├── src/
 │   ├── api/          # API routes and controllers
 │   ├── database/     # Database migrations and seeds
+│   │   ├── v_1/     # Version 1 database schemas and migrations
+│   │   └── drizzle/ # Generated Drizzle migrations
 │   ├── helpers/      # Utility functions and helpers
 │   ├── seeds/        # Database seed files
 │   └── emailTemplates/ # Email templates
 ├── dist/             # Compiled JavaScript files
+├── drizzle.config.json # Drizzle ORM configuration
 ├── dockerfile        # Development Docker configuration
 ├── dockerfile.prod   # Production Docker configuration
 └── docker-compose.yml # Docker services configuration
@@ -119,6 +123,7 @@ DB_PORT=5432
 DB_NAME=your_database
 DB_USER=your_username
 DB_PASSWORD=your_password
+MIGRATOR_DB_HOST=localhost # Host for running migrations
 
 # JWT Configuration
 JWT_SECRET=your_jwt_secret

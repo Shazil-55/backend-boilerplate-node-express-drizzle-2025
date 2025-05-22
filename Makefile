@@ -1,7 +1,7 @@
 prepare:
 	npm install
 migrate:
-	npm run migrator
+	npx drizzle-kit generate  && npm run migrator
 build:
 	docker-compose build
 dev:

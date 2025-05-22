@@ -23,14 +23,3 @@ export const verifyTokens = pgTable('verifyTokens', {
   createdAt: timestamp('createdAt').defaultNow().notNull(),
   updatedAt: timestamp('updatedAt').defaultNow().notNull(),
 });
-
-export const verifyTokens2 = pgTable('verifyTokens2', {
-  id: uuid('id').defaultRandom().primaryKey(),
-  token: text('token').notNull(),
-  token2: text('token2').notNull(),
-  userId: uuid('userId')
-    .references(() => users.id)
-    .notNull(),
-  createdAt: timestamp('createdAt').defaultNow().notNull(),
-  updatedAt: timestamp('updatedAt').defaultNow().notNull(),
-});
