@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+      .email-container {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #ffffff;
+        padding: 20px;
+        border: 1px solid #dddddd;
+        border-radius: 5px;
+      }
+      .header {
+        text-align: center;
+        background-color: #007bff;
+        color: #ffffff;
+        padding: 10px 0;
+        border-radius: 5px 5px 0 0;
+      }
+      .content {
+        padding: 20px;
+        text-align: center;
+      }
+      .content p {
+        font-size: 16px;
+        color: #333333;
+        margin-bottom: 20px;
+      }
+      .otp {
+        font-size: 24px;
+        font-weight: bold;
+        color: #007bff;
+        margin: 20px 0;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 12px;
+        color: #999999;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-container">
+      <div class="header">
+        <h1>OTP Verification</h1>
+      </div>
+      <div class="content">
+        <p>Hi,</p>
+        <p>Your One-Time Password (OTP) for verification is:</p>
+        <p class="otp">{{otp}}</p>
+        <p>Please use this OTP to complete your verification. The OTP is valid for the next 10 minutes.</p>
+        <p>If you didn't request this, please contact our support team immediately.</p>
+      </div>
+      <div class="footer">
+        <p>If you have any questions, please contact us at support@vertifyanalytics.com.</p>
+        <p>Thank you,<br />The VertifyAnalytics Team</p>
+      </div>
+    </div>
+  </body>
+</html>

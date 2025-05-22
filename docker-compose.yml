@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    ports:
+      - '8000:8000'
+    environment:
+      - POSTGRES_HOST=db
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=${DB_HOST}
+      - MIGRATOR_DB_HOST=${MIGRATOR_DB_HOST}
+    depends_on:
+      - db
+    command: >
+      sh -c "npm run build && npm run dev -- --watchDir /app/src --ext ts,json --ignore-watch node_modules"
+    volumes:
+      - .:/app
+  db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_HOST=db
+      - DB_HOST=${DB_HOST}
+      - MIGRATOR_DB_HOST=${MIGRATOR_DB_HOST}
+    ports:
+      - '5432:5432'

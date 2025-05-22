@@ -1,0 +1,69 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Swagger backend API",
+    "description": "User facing API endpoint service",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:8000",
+  "basePath": "/api/v_1/internal",
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/common/status": {
+      "get": {
+        "tags": ["Status"],
+        "summary": "Returns the status of the server's connection with database",
+        "responses": {
+          "200": {
+            "description": "Server connection successfull",
+            "schema": {
+              "$ref": "#/components/schemas/status"
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "status": {
+        "title": "status.response",
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "message": {
+                "type": "string"
+              },
+              "environment": {
+                "type": "string"
+              },
+              "versionNo": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "error": {
+        "title": "error",
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
